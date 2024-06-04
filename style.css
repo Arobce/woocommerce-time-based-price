@@ -1,0 +1,24 @@
+.wtbp-add_custom_pricing,
+.wtbp-title,
+.wtbp-remove_custom_pricing {
+  margin: 5px 12px;
+}
+
+.wtbp-add_custom_pricing {
+    margin-top: 16px;
+}
+.wtbp-options_group {
+    border-top: 1px solid #eee;
+    padding:  5px 0;
+}
+
+.wtbp-current_time {
+    margin: 5px 12px;
+
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-left-width: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    margin: 12px 15px 2px;
+    padding: 1px 6px;
+}
