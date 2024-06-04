@@ -1,6 +1,6 @@
 === Time-Based Product Pricing ===
 
-Contributors: Roshan Chapagain
+Contributors: arobce
 
 Donate link: https://roshanchapagain.com/
 
