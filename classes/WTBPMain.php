@@ -45,7 +45,7 @@ class WTBPMain
         <script type="text/javascript">
             jQuery(document).ready(function($) {
                 var customPricingIndex = <?php echo count($custom_pricing); ?>;
-                $('.add_custom_pricing').click(function() {
+                $('.wtbp-add_custom_pricing').click(function() {
                     var fieldHTML = `
                     <div class="custom_pricing_field">
                         <p class="form-field">
@@ -77,7 +77,7 @@ class WTBPMain
                 });
 
                 // Remove field
-                $(document).on('click', '.remove_custom_pricing', function() {
+                $(document).on('click', '.wtbp-remove_custom_pricing', function() {
                     $(this).closest('.custom_pricing_field').remove();
                 });
             });
