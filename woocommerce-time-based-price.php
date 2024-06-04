@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The plugin bootstrap file
  *
@@ -22,29 +23,61 @@
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
-
 // Exit if accessed directly
 if (!defined('ABSPATH')) {
     exit;
 }
 
-// Include the main plugin class
-include_once 'classes/WTBPMain.php';
+include_once('includes/WTBPCustomPricingFields.php');
+include_once('includes/WTBPPricingLogic.php');
 
 class WoocommerceTimeBasedPrice
 {
+    protected $custom_pricing_fields;
+    protected $pricing_logic;
 
-    protected $main_class;
 
+    /**
+     * WoocommerceTimeBasedPrice constructor.
+     * Initializes dependencies and sets up WordPress hooks.
+     */
     public function __construct()
     {
-        $this->main_class = new WTBPMain();
+        $this->init_dependencies();
 
+        // Hook to add custom fields to the product edit page
+        add_action('woocommerce_product_options_pricing', array($this->custom_pricing_fields, 'add_custom_pricing_fields'));
+        add_action('woocommerce_process_product_meta', array($this->custom_pricing_fields, 'save_custom_pricing_fields'));
+
+        // Hook to apply custom pricing
+        add_filter('woocommerce_product_get_price', array($this->pricing_logic, 'apply_custom_pricing'), 10, 2);
+        add_filter('woocommerce_product_get_sale_price', array($this->pricing_logic, 'apply_custom_pricing'), 10, 2);
+
+        // Enqueue scripts
         add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
     }
 
-    public function enqueue_scripts() {
-        wp_enqueue_style('wtbp-style', plugins_url('style.css', __FILE__));
+    /**
+     * Initializes the dependencies by creating instances of required classes.
+     *
+     * @return void
+     */
+    private function init_dependencies()
+    {
+        $this->custom_pricing_fields = new WTBPCustomPricingFields();
+        $this->pricing_logic = new WTBPPricingLogic();
+    }
+
+    /**
+     * Enqueues the necessary scripts and styles for the admin area.
+     *
+     * @return void
+     */
+    public function enqueue_scripts()
+    {
+        wp_enqueue_style('wtbp-custom-pricing-style', plugins_url('style.css', __FILE__));
+
+        wp_enqueue_script('wtbp-custom-pricing-fields-handler', plugins_url('/assets/js/custom-pricing-fields-handler.js', __FILE__), array('jquery'), null, true);
     }
 }
 
