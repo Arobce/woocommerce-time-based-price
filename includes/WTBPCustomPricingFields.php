@@ -85,6 +85,11 @@ class WTBPCustomPricingFields
      */
     public static function save_custom_pricing_fields($post_id)
     {
+        // Verify nonce
+        if (!isset($_POST['wtbp_custom_pricing_nonce']) || !wp_verify_nonce($_POST['wtbp_custom_pricing_nonce'], 'wtbp_save_custom_pricing')) {
+            return;
+        }
+
         // Save custom fields data
         if (isset($_POST['custom_pricing'])) {
             $custom_pricing = array_map(function ($pricing) {

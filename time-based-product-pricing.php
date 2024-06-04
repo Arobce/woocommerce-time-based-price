@@ -31,7 +31,7 @@ if (!defined('ABSPATH')) {
 include_once('includes/WTBPCustomPricingFields.php');
 include_once('includes/WTBPPricingLogic.php');
 
-class WoocommerceTimeBasedPrice
+class TimeBasedProductPricing
 {
     protected $custom_pricing_fields;
     protected $pricing_logic;
@@ -81,4 +81,4 @@ class WoocommerceTimeBasedPrice
     }
 }
 
-new WoocommerceTimeBasedPrice();
+new TimeBasedProductPricing();

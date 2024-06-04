@@ -1,0 +1,16 @@
+{
+  "name": "time-based-product-pricing",
+  "version": "1.0.0",
+  "description": "Contributors: Roshan Chapagain",
+  "main": "index.js",
+  "scripts": {
+    "build": "node archiver.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "archiver": "^7.0.1",
+    "glob": "^10.4.1"
+  }
+}
