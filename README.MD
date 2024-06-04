@@ -20,11 +20,11 @@ Set different prices for WooCommerce products based on time periods.
 
 ## Description
 
-With this plugin you will be able to set custom prices for your WooCommerce products. This is best if you want to create time-based sales in your store.
+With this plugin, you can set custom prices for your WooCommerce products. This is best if you want to create time-based sales in your store.
 
 ### Features
 - Easy to Use
-- Multi time period selection
+- Multi-time period selection
 
 ## Installation
 
@@ -42,7 +42,7 @@ Yes
 
 1. Desktop view
 
-![Main Product Page](assets/screenshot.png)
+![Main Product Page](assets/screenshot.PNG)
 
 ## Changelog
 
